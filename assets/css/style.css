@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +7,15 @@
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 3vh;
-	display: grid;
+  background-color: #323b40;
+  font-family: 'Belanosima', sans-serif;
+  font-size: 16px;
   color: #fdfdfe;
   font-weight: 600;
-	grid-template-columns: 100%;
-	grid-template-rows: 0.7fr 0.6fr 8fr 0.7fr;
+  height: 100vh;
+	display: grid;
+  grid-template-columns: 100%;
+	grid-template-rows: 2fr 2fr 10fr 1fr;
 	grid-template-areas:
 	"header"
   "nav"
@@ -24,43 +28,40 @@ a {
 }
 
 h1 {
-  font-size: 6vh;
+  font-size: 35px;
   font-weight: 600;
-  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
-    0px 0px 20px #b393d3;
+  text-shadow: 0px 0px 5px #0ebac7, 0px 0px 10px #0ebac7, 0px 0px 10px #0ebac7,
+    0px 0px 20px #0ebac7;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 1em;
+  max-width: 16em;
+  margin: 0;
+  padding: 0 40px;
 }
 
 header {
-  background-color: #301934;
+  display: flex;
+  background-color:  #33383b;
   grid-area: header;
   padding-top: 2vh;
   text-align: center;
 }
-
-nav{
-  grid-area: nav;
-  background-color: #301934;
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-}
-
-nav div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+figure {
+  margin-top: 10px;
 }
 .beer-l {
 	position: relative;
-	width: 70px;
+	width: 50px;
 	height: auto;
 	animation: cheersl 3s ease-out infinite;
 }
 
 .beer-r {
 	position: relative;
-	width: 70px;
+	width: 50px;
 	height: auto;
 	animation: cheersr 3s ease-out infinite;
 }
@@ -70,13 +71,13 @@ nav div{
 		bottom: 0px; right: 0px;
 	}
 	25% {
-		bottom: 0px; right: 30px;
+		bottom: 0px; right: 10px;
 	}
 	50% {
-		transform: rotate(-15deg); bottom: 20px; right: 20px;
+		transform: rotate(-15deg); bottom: 20px; right: 10px;
 	}
 	75%{
-		transform: rotate(-15deg); bottom: 20px; right: 20px;
+		transform: rotate(-15deg); bottom: 20px; right: 10px;
 	}
 	100%{
 		transform: rotate(0deg); bottom: 0px; right: 0px;
@@ -88,20 +89,39 @@ nav div{
 		transform: scale(-1,1); bottom: 0px; left: 0px;
 	}
 	25% {
-		transform: scale(-1,1) rotate(-15deg); bottom: 0px; left: 20px;
+		transform: scale(-1,1) rotate(-15deg); bottom: 0px; left: 10px;
 	}
 	50% {
-		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 20px;
+		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 10px;
 	}
 	75%{
-		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 20px;
+		transform: scale(-1,1) rotate(-15deg); bottom: 20px; left: 10px;
 	}
 	100%{
 		transform: scale(-1,1) rotate(0deg); bottom: 0px; left: 0px;
 	}
 }
 
+nav{
+  grid-area: nav;
+  background-color:  #33383b;
+  display: flex;
+  justify-content: center;
+}
+
+nav div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
 /* MENU */
+
+.mdi-menu {
+  font-size: 30px;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+}
 
 .menu {
   visibility:hidden;
@@ -123,27 +143,37 @@ nav div:active > .menu {
   opacity:1;
 }
 
-li > a:hover{
-  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
-    0px 0px 20px #b393d3;
+nav div:hover > span {
+  visibility:hidden;
+  opacity:0;
 }
+
+nav div:active > span {
+  visibility:hidden;
+  opacity:0;
+}
+
+li > a:hover{
+  text-shadow: 0px 0px 5px #0ebac7, 0px 0px 10px #0ebac7, 0px 0px 10px #0ebac7,
+    0px 0px 20px #0ebac7;
+}
+
 main {
   grid-area: main;
 }
 
-/* GALERIA */
+/* GALLERY  */
 
 .gallery {
   grid-area: gallery;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
 }
 
 .container {
   position: relative;
-  width: 1160px;
+  max-width: 1160px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -153,8 +183,8 @@ main {
 
 .container .box {
   position: relative;
-  width: 275px;
-  height: 275px;
+  width: 200px;
+  height: 200px;
   background: #000;
   transition: 0.5s;
   overflow: hidden;
@@ -198,12 +228,148 @@ main {
   object-fit: cover;
 }
 
+/* FOOTER */
+
 footer {
   grid-area: footer;
-  background-color: #301934;
-  margin-top: 50px;
-  padding: 30px;
-  text-align: center;
-  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
-    0px 0px 20px #b393d3;
+	background-color:  #33383b;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	text-align: left;
+	padding: 55px 50px;
+}
+
+footer .footer-left,
+footer .footer-center,
+footer .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+footer .footer-left{
+	width: 40%;
+}
+
+footer img{
+  width: 50%;
+}
+
+footer .footer-company-name{
+	color:  #0ebac7;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+footer .footer-center{
+	width: 35%;
+}
+
+footer .footer-center i{
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+footer .footer-center p{
+	display: inline-block;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+footer .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+footer .footer-center p a {
+	color:  #0ebac7;
+	text-decoration: none;;
+}
+
+footer .footer-right {
+	width: 20%;
+}
+
+footer .footer-company-about span {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+footer .footer-icons {
+	margin-top: 25px;
+}
+
+footer .footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #0ebac7;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+@media (max-width: 700px) {
+	footer{
+		font: bold 14px sans-serif;
+	}
+	footer .footer-left,
+	footer .footer-center,
+	footer .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	footer .footer-center i{
+		margin-left: 0;
+	}
+}
+
+@media (min-width: 700px) {
+  body {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 10fr 2fr;
+    grid-template-areas:
+    "header nav"
+    "main main"
+    "footer footer";
+  }
+  nav div{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    cursor: auto;
+  }
+  span {
+    display: none;
+  }
+  .menu {
+    visibility:visible;
+    opacity:1;
+  }
+}
+
+@media (max-width: 273px) {
+	figure {
+    display: none;
+  }
+  header{
+    justify-content: center;
+  }
 }
