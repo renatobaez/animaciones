@@ -4,15 +4,14 @@
   text-decoration: none;
 }
 
-body{
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 3vh;
 	display: grid;
-	height: 100vh;
-  background-color: #301934;
   color: #fdfdfe;
   font-weight: 600;
 	grid-template-columns: 100%;
-	grid-template-rows: 1fr 2fr 10fr 1fr;
+	grid-template-rows: 0.7fr 0.6fr 8fr 0.7fr;
 	grid-template-areas:
 	"header"
   "nav"
@@ -20,68 +19,50 @@ body{
 	"footer";
 }
 
-a{
+a {
   color: #fdfdfe;
 }
 
-header {
-  grid-area: header;
-  margin-top: 30px;
-  text-align: center;
-  font-size: 2rem;
+h1 {
+  font-size: 6vh;
   font-weight: 600;
   text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
     0px 0px 20px #b393d3;
 }
 
+header {
+  background-color: #301934;
+  grid-area: header;
+  padding-top: 2vh;
+  text-align: center;
+}
+
 nav{
   grid-area: nav;
+  background-color: #301934;
   display: flex;
-  flex-direction: row;
+  width: 100vw;
   justify-content: center;
 }
 
+nav div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
 .beer-l {
 	position: relative;
-	margin-top: 100px;
-	width: 100px;
+	width: 70px;
 	height: auto;
 	animation: cheersl 3s ease-out infinite;
 }
 
 .beer-r {
 	position: relative;
-	margin-top: 100px;
-	width: 100px;
+	width: 70px;
 	height: auto;
 	animation: cheersr 3s ease-out infinite;
-}
-
-/* MENU */
-nav div{
-  cursor: pointer;
-}
-
-.menu {
-  visibility:hidden;
-  opacity:0;
-  display: flex;
-  gap: 10px;
-  transition:visibility 0.3s linear,opacity 0.3s linear;
-  width:100px;
-  margin:0;
-  padding:5px;
-  list-style:none;
-}
-
-nav div:hover > .menu {
-  visibility:visible;
-  opacity:1;
-}
-
-nav div:active > .menu {
-  visibility:visible;
-  opacity:1;
 }
 
 @keyframes cheersr {
@@ -120,6 +101,32 @@ nav div:active > .menu {
 	}
 }
 
+/* MENU */
+
+.menu {
+  visibility:hidden;
+  opacity:0;
+  display: flex;
+  gap: 3vw;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+  margin:0;
+  list-style:none;
+}
+
+nav div:hover > .menu {
+  visibility:visible;
+  opacity:1;
+}
+
+nav div:active > .menu {
+  visibility:visible;
+  opacity:1;
+}
+
+li > a:hover{
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+}
 main {
   grid-area: main;
 }
@@ -193,10 +200,10 @@ main {
 
 footer {
   grid-area: footer;
+  background-color: #301934;
+  margin-top: 50px;
   padding: 30px;
   text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
   text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
     0px 0px 20px #b393d3;
 }
